@@ -1,0 +1,32 @@
+---
+title: "HW 6"
+author: "Musie Gebreegziabher"
+date: "4/10/2024"
+output: 
+  html_document:
+    number_sections: true
+---
+
+#
+What is the difference between gradient descent and *stochastic* gradient descent as discussed in class?  (*You need not give full details of each algorithm.  Instead you can describe what each does and provide the update step for each.  Make sure that in providing the update step for each algorithm you emphasize what is different and why.*)
+
+*Gradient descent is an optimization algorithmn that computes gradients for the entire training set and updates parameters based on the average of gradients. Stochastic gradient descent is different in that it updates parameters using the gradient of the cost function. *
+
+#
+Consider the `FedAve` algorithm.  In its most compact form we said the update step is $\omega_{t+1} = \omega_t - \eta \sum_{k=1}^K{\frac{n_k}{n}\nabla F_k(\omega_t)}$.  However, we also emphasized a more intuitive, yet equivalent, formulation given by $\omega_{t+1}^k=\omega_t-\eta\nabla F_k(\omega_t); w_{t+1} = \sum_{k=1}^K{\frac{n_k}{n}w_{t+1}^k}$.  
+
+Prove that these two formulations are equivalent.  
+(*Hint: show that if you place $\omega_{t+1}^k$ from the first equation (of the second formulation) into the second equation (of the second formulation), this second formulation will reduce to exactly the first formulation.*) 
+
+*Student Input*
+
+#
+Now give a brief explanation as to why the second formulation is more intuitive.  That is, you should be able to explain broadly what this update is doing.  
+
+*The second formulation of the FedAve algorithm is more intuitive because it involves updating each local model based on its own loss function gradient, reflecting the decentralized nature of federated learning. Then, by aggregating these updates with weights proportional to the size of each local dataset, the final global model benefits from contributions from all models while accommodating differences in dataset sizes.*
+
+# 
+Explain how the harm principle places a constraint on personal autonomy.  Then, discuss whether the harm principle is *currently* applicable to machine learning models.  (*Hint: recall our discussions in the moral philosophy primer as to what grounds agency.  You should in effect be arguing whether ML models have achieved agency enough to limit the autonomy of the users of said algorithms.* )
+
+*The harm principle places a constraint on personal autonomy in scenarios of paternalism/retribution when their autonomy is stopped in scenarios for their own good or for the good of others. The harm principle is currently applicable to machine learning models. It can be used to check developer autonomy. For example, lucrative practices are sufficient justification for data acquisition *
+
